@@ -1,0 +1,13 @@
+.tasks {
+    display: flex;
+    width: 30vw;
+    justify-content: space-between;
+}
+
+.urgent > h2 {
+    color: rgb(156, 19, 19);
+}
+
+.urgent > p {
+    color: rgba(238, 90, 90, 0.808);
+}

@@ -1,2 +1,8 @@
-h1 #{task.title}
-p #{task.content}
+if task.isUrgent
+    article.urgent
+        h2 #{task.title}
+        p #{task.content}
+else 
+    article
+        h2 #{task.title}
+        p #{task.content}
