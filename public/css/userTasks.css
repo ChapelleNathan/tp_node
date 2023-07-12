@@ -1,19 +1,17 @@
 .tasks {
     display: flex;
-    width: 30vw;
-    justify-content: space-between;
+    width: 40vw;
+    justify-content: space-around;
 }
 
-.urgent > h2 {
+.urgent > h3 {
     color: rgb(156, 19, 19);
     font-size: 1.3rem;
-}
-article {
-    display: flex;
-    gap: 1.5rem;
-    align-items: center;
 }
 
 article > button {
     height: min-content;
+}
+.hidden{
+    display: none;
 }

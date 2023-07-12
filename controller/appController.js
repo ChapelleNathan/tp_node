@@ -1,6 +1,8 @@
 const { resolve } = require('path');
 const { users } = require('../db/users.json');
 const { tasks } = require('../db/tasks.json');
+const { writeFileSync } = require('fs');
+const { response } = require('../app');
 
 exports.homeController = ((request, response) => {
     response.render('home', {users})
@@ -19,4 +21,8 @@ exports.userController = ((request, response) => {
     user ? 
         response.render('userTasks', { user, userTasks }) :
         response.status(404).end();
+})
+
+exports.createTaskController = ((request, response) => {
+    response.render('taskForm', {userId: request.params.id});
 })
