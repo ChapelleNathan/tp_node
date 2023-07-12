@@ -1,0 +1,14 @@
+doctype html
+html(lang="fr")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        script(src="./public/js/app.js") 
+        title Accueil
+    body 
+        h1 Acceuil 
+        secion 
+            each user in users 
+                article
+                    a(href=`/user/${user.id}/tasks`) 
+                        h2 Tâches de #{user.name}

@@ -1,0 +1,18 @@
+doctype html
+html(lang="fr")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Tâches
+    body 
+        h1 Tâche de #{user.name}
+        section.tasks 
+            .notdone
+                each task in userTasks
+                    unless task.isDone
+                     include includes/_task
+            .done
+                each task in userTasks
+                    if task.isDone
+                        include includes/_task
+

@@ -1,9 +1,22 @@
 const { resolve } = require('path');
+const { users } = require('../db/users.json');
+const { tasks } = require('../db/tasks.json');
 
 exports.homeController = ((request, response) => {
-    response.sendFile(resolve('public', 'html','home.html'));
+    response.render('home', {users})
 })
 
 exports.userController = ((request, response) => {
-    response.sendFile(resolve('public', 'html','userTasks.html'));
+    let userId = request.params.id;
+    let user = users.find(user => user.id == userId)
+    let userTasks = [];
+    
+    tasks.forEach(task => {
+        if (task.userId == userId) {
+            userTasks.push(task);
+        }
+    });
+    user ? 
+        response.render('userTasks', { user, userTasks }) :
+        response.status(404).end();
 })
