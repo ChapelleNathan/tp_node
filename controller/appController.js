@@ -5,6 +5,5 @@ exports.homeController = ((request, response) => {
 })
 
 exports.userController = ((request, response) => {
-    response.end();
     response.sendFile(resolve('public', 'html','userTasks.html'));
 })
