@@ -1,8 +1,5 @@
-const { resolve } = require('path');
 const { users } = require('../db/users.json');
 const { tasks } = require('../db/tasks.json');
-const { writeFileSync } = require('fs');
-const { response } = require('../app');
 
 exports.homeController = ((request, response) => {
     response.render('home', {users})

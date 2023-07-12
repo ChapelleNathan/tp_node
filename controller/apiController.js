@@ -1,13 +1,10 @@
-const { users } = require('../db/users.json');
 const { tasks } = require('../db/tasks.json');
 const { writeFileSync } = require('fs');
-const { response } = require('../app');
 const { randomUUID } = require('crypto');
 const { resolve } = require('path');
 
 
 exports.updateTaskController = ((request, response) => {
-    let userId = request.params.userId
     let taskId = request.params.taskId;
     let task = findTask(taskId);
     task.isDone ? task.isDone = false : task.isDone = true;
@@ -16,10 +13,10 @@ exports.updateTaskController = ((request, response) => {
 })
 
 exports.deleteTaskController = ((request, response) => {
-    let taskId = request.params.id
-    for (let task of tasks) {
-        if (task.id == taskId) {
-            tasks.splice(task.id,1);
+    const taskId = request.params.id
+    for (let i = 0; i < tasks.length; i++) {
+        if (tasks[i].id == taskId) {
+            tasks.splice(i,1);
         }
     }
     updateJSON();
