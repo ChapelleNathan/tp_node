@@ -1,8 +1,5 @@
-if task.isUrgent
-    article.urgent
-        h2 #{task.title}
-        p #{task.content}
-else 
-    article
-        h2 #{task.title}
-        p #{task.content}
+article(class= task.isUrgent ? 'urgent' : '')
+    h2 #{task.content}
+    button.doneBtn
+        = task.isDone ? 'Ne plus valider' : 'Valider'
+        
